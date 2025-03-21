@@ -16,6 +16,10 @@ function Rodape() {
         </li>
 <RiGoogleFill size={35}/>
     </ul>
+    <h1 className={styles.h11}><br></br>Empresa</h1>
+    <h2>Sobre nós</h2>
+    <h2>Contato</h2>
+    <h2>Todos os contatos</h2>
  </footer> 
  )
 

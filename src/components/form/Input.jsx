@@ -1,6 +1,6 @@
 import styles from './Input.module.css';
  
- function Input({type ,text, name, id, placeholder, value}){
+ function Input({type ,text, name, id, placeholder, value, handlerChange}){
       return(
      <div className= {styles.form_control }>
  
@@ -11,6 +11,7 @@ import styles from './Input.module.css';
          id={id}
          placeholder={placeholder}
          value={value}
+         onChange={handlerChange}
          />
          </div>
          )
