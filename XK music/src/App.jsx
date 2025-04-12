@@ -11,6 +11,7 @@ import Perfil from './components/pages/Perfil'
 
 /* IMPORTAÇÃO DO NAVBAR */
 import NavBar from './components/layout/NavBar'
+import Rodape from './components/layout/Rodape'
 
 
 function App() {
@@ -36,11 +37,11 @@ function App() {
               </Route>
 
             </Routes>
+           <Rodape/>
 
           </Container>
 
         </BrowserRouter>
-
       </div>
     </>
   )

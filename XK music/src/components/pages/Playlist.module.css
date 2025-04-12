@@ -1,8 +1,33 @@
-.h1{
-    color:rgb(0, 94, 177);
-    background-color: aliceblue;
+
+
+.create_playlist_container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4em;
 }
 
-.div1{
-    background-color: rgb(250, 250, 237);
+.titulo{
+    color: #f2f2f2;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 4em;
+    flex-direction: column;
+    width: 100%;
+
+}
+
+.subtitulo{
+    color: #f2f2f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fundo {
+    background-color: transparent;
+    border-radius: 20px;
 }
