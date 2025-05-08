@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import style from './Playlist.module.css';
 import Input from "../form/Input";
 import Select from "../form/Select";
@@ -6,6 +7,8 @@ import Button from "../form/Button";
 import SelectA from "../form/SelectA"; 
 
 const Playlist = () => {
+    const navigate = useNavigate(); 
+
     const [musica, setMusica] = useState({
         nome_musica: '',
         nome_cantor: '',
@@ -14,33 +17,28 @@ const Playlist = () => {
         avaliacaoId: ''
     });
 
-
-    // Função para capturar dados dos inputs
     function handlerChangeMusica(event) {
         setMusica({
             ...musica, [event.target.name]: event.target.value 
         });
     }
 
-    // Função para capturar dados do Select 
     function handlerChangeCategory(event) {
         setMusica({
             ...musica, categoria: event.target.options[event.target.selectedIndex].text 
         });
     }
 
-    // Função para capturar dados do SelectA 
     function handlerChangeAvaliacao(event) {
         setMusica({
             ...musica, avaliacaoId: event.target.options[event.target.selectedIndex].value 
         });
     }
 
-    // Função de envio de dados para a API
-  async  function submit(event) {
+    async function submit(event) {
         event.preventDefault();
- console.log(musica);
-       await fetch('http://localhost:3000/comentarios', {
+        console.log(musica);
+        await fetch('http://localhost:3000/comentarios', {
             method: 'POST',
             headers: {
                 'Content-Type':'application/Json',
@@ -53,13 +51,14 @@ const Playlist = () => {
             if (response.ok) {
                 return response.json();
             }
-            console.log(response)
+            console.log(response);
             throw new Error();
         })
         .then(data => {
             alert('Comentário enviado com sucesso!');
-           
-            setMusica({ nome_musica: '', nome_cantor: '', comentario: '', categoria: '', avaliacaoId: '' }); // Limpa o formulário
+            setMusica({ nome_musica: '', nome_cantor: '', comentario: '', categoria: '', avaliacaoId: '' });
+
+            navigate("/perfil");
         })
         .catch(error => {
             console.error('Erro ao enviar dados:', error);
@@ -67,28 +66,26 @@ const Playlist = () => {
         });
     }
 
-   
-
     return(  
         <section> 
             <h1 className={style.titulo}>XK MUSIC: Um toque, Uma vibe</h1> 
             <form onSubmit={submit}>                     
                 <section className={style.create_playlist_container}>      
                     <div className={style.fundo}>
-                        <h1 className={style.subtitulo}>Crie seu comentario da sua musica do momento</h1>  
+                        <h1 className={style.subtitulo}>Crie seu comentário da sua música do momento</h1>  
                         <SelectA
                             name='avaliacao'   
                             id='txt_Musica'  
-                            text='Avaliação da Musica'
+                            text='Avaliação da Música'
                             handlerChange={handlerChangeAvaliacao}  
                         />
 
                         <Input         
-                            text='Nome da Musica'         
+                            text='Nome da Música'         
                             type='text'          
                             name='nome_musica'   
                             id='txt_Musica'  
-                            placeholder='Digite o nome da musica' 
+                            placeholder='Digite o nome da música' 
                             handlerChange={handlerChangeMusica}            
                         />  
 
@@ -104,12 +101,12 @@ const Playlist = () => {
                         <Select
                             name='categoria' 
                             id='txt_Musica' 
-                            text='Gênero da Musica'
+                            text='Gênero da Música'
                             handlerChange={handlerChangeCategory}
                         />
 
                         <Input         
-                            text='Comentario sobre a avaliação'         
+                            text='Comentário sobre a avaliação'         
                             type='text'          
                             name='comentario'  
                             id='txt_Musica'  
@@ -117,12 +114,10 @@ const Playlist = () => {
                             handlerChange={handlerChangeMusica}            
                         /> 
 
-                        <Button label='POSTAR COMENTARIO' /> 
+                        <Button label='POSTAR COMENTÁRIO' /> 
                     </div>
                 </section>
             </form>
-            
-            
         </section>
     );
 };
