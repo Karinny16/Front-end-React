@@ -1,0 +1,13 @@
+.buttonContainer{
+    width: 100%;
+    max-width: 300px;
+}
+
+button{
+    width: 100%;
+    font-family: Helvetica;
+    border: 1px solid #FFF;
+    border-radius: 5px;
+    background: linear-gradient(180deg, #d13c3d 0%, #f9e5e5 100%);
+    color: #FFF;
+}

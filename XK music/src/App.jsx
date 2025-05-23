@@ -8,6 +8,7 @@ import Container from './components/layout/Container'
 import Home from './components/pages/Home'
 import Playlist from './components/pages/Playlist'
 import Perfil from './components/pages/Perfil'
+import Informacoes from './components/pages/informacoes'
 
 /* IMPORTAÇÃO DO NAVBAR */
 import NavBar from './components/layout/NavBar'
@@ -32,7 +33,7 @@ function App() {
                 <Route path='/' element={<Home />} />
                 <Route path='/playlist' element={<Playlist />} />
                 <Route path='/perfil' element={<Perfil />} />
-                
+        <Route path="/informacoes/:id_musica" element={<Informacoes />} />                
 
               </Route>
 

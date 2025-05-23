@@ -54,6 +54,19 @@ app.get('/comentarios/avaliacao/:avaliacaoId', (req, res) => {
     const sql = 'SELECT * FROM comment WHERE avaliacaoId = ?';
     queryDatabase(sql, [req.params.avaliacaoId], res);
 });
+app.get('/informacoes/:id_musica', (req, res) => {
+    const sql = 'SELECT * FROM comment WHERE id = ?';
+    db.query(sql, [req.params.id_musica], (err, result) => {
+        if (err) {
+            console.error('Erro ao executar query:', err);
+            res.status(500).json({ error: 'Erro ao buscar informações.' });
+        } else {
+            console.log('Dados retornados:', result); // Verifique se está retornando dados
+            res.json(result.length > 0 ? result[0] : {}); // Retorna objeto vazio se não encontrar
+        }
+    });
+});
+
 
 app.post('/avaliacoes', (req, res) => {
     const { descricao } = req.body;

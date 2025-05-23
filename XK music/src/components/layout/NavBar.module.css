@@ -1,37 +1,43 @@
-.navbar{
+.navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Centraliza os itens dentro da barra de navegação */
     background-color: #ea5455;
     padding: 1em;
 }
 
-.list{
+.list {
     display: flex;
     list-style: none;
     align-items: center;
     justify-content: space-between;
+    width: 90%; /* Garante que a lista ocupe toda a largura */
 }
 
-.item{
+.item {
     margin-right: 1em;
     color: #ffffff;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
-
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-
-.item a{
-    color:#efedf3;
+.item a {
+    color: #efedf3;
     text-decoration: none;
 }
 
-
-.item a:hover{
-    color:#ffbb33;
+.item a:hover {
+    color: #ffbb33;
 }
 
-.logo{
+.logo {
     width: 120px;
     height: auto;
-    border-radius: 25%
+    border-radius: 25%;
+}
+
+.con {
+    display: flex;
+    gap: 150px;
+    margin-left: -200px;
+    justify-content: center; 
+    width: 100%; 
 }

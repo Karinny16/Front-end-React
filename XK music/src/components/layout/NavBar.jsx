@@ -14,7 +14,7 @@ const NavBar = ()=>{
                         <li className={style.item}><img className={style.logo} src={"./logoxk.PNG"} alt="Logotipo" /></li>
                     </Link>
                     
-
+<div className={style.con}>
                     <Link to='/'>
                         <li className={style.item}>HOME</li>
                     </Link>
@@ -27,7 +27,7 @@ const NavBar = ()=>{
                     <Link to='/perfil'>
                         <li className={style.item}>PERFIL</li>
                     </Link>
-
+</div>
                 </ul>
 
             </nav>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import style from './Perfil.module.css';
+import Botao from '../../Botao';
 
 const Perfil = () => {
     const [avaliacaoId, setAvaliacaoId] = useState('');
@@ -37,17 +38,27 @@ const Perfil = () => {
                 <button onClick={fetchFilteredComments}>Buscar</button>
             </div>
             {mensagem && <p className={style.mensagem}>{mensagem}</p>}
-            <ul className={style.commentsList}>
                 {comentarios.map((comentario, index) => (
-                    <li key={index} className={style.commentItem}>
-                        <p><strong>Música:</strong> {comentario.nome_musica}</p>
-                        <p><strong>Cantor:</strong> {comentario.nome_cantor}</p>
-                        <p><strong>Comentário:</strong> {comentario.comentario}</p>
-                        <p><strong>Categoria:</strong> {comentario.categoria}</p>
-                        <p><strong>Avaliação:</strong> {'⭐'.repeat(comentario.avaliacaoId)}</p>
-                    </li>
-                ))}
-            </ul>
+                                <><ul className={style.commentsList}>
+
+                        <li key={index} className={style.commentItem}>
+                            <p><strong>Música:</strong> {comentario.nome_musica}</p>
+                            <p><strong>Cantor:</strong> {comentario.nome_cantor}</p>
+                            {/* <p><strong>Comentário:</strong> {comentario.comentario}</p>
+                            <p><strong>Categoria:</strong> {comentario.categoria}</p> */}
+                            <p><strong>Avaliação:</strong> {'⭐'.repeat(comentario.avaliacaoId)}</p>
+                        </li>
+                    </ul><Botao label='Detalhe'
+                        router='/informacoes/'
+                        index={comentario.id}>
+                        </Botao></>
+                ))} 
+
+            
+           
+
+
+
         </section>
     );
 };
