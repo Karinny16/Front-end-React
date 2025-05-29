@@ -81,5 +81,57 @@ app.get('/avaliacoes', (req, res) => {
     queryDatabase('SELECT * FROM avaliacao', [], res);
 });
 
+app.put('/avaliacoes/:id', (req, res) => {
+  const { id } = req.params;
+  const { descricao } = req.body;
+
+  if (!descricao)
+    return res.status(400).json({ error: 'Descrição é obrigatória para atualizar!' });
+
+  const sql = 'UPDATE avaliacao SET descricao = ? WHERE id = ?';
+  queryDatabase(sql, [descricao, id], res, 'Avaliação atualizada com sucesso!');
+});
+app.put('/comentarios/:id', (req, res) => {
+  const { id } = req.params;
+  const { nome_musica, nome_cantor, comentario, categoria, avaliacaoId } = req.body;
+  const sql = 'UPDATE comment SET nome_musica = ?, nome_cantor = ?, comentario = ?, categoria = ?, avaliacaoId = ? WHERE id = ?';
+  db.query(sql, [nome_musica, nome_cantor, comentario, categoria, avaliacaoId, id], (err, result) => {
+    if (err) {
+      console.error(`Erro ao atualizar: ${err.message}`);
+      return res.status(500).json({ error: 'Erro ao atualizar comentário.' });
+    }
+    res.status(200).json({ success: true, message: "Comentário atualizado com sucesso!", result });
+  });
+});
+
+
+// Rota PUT para atualizar um comentário
+app.put('/comentarios/:id', (req, res) => {
+  const { id } = req.params;
+  const { nome_musica, nome_cantor, comentario, categoria, avaliacaoId } = req.body;
+
+  // Validação dos campos
+  if (!nome_musica || !nome_cantor || !categoria || !avaliacaoId) {
+    return res.status(400).json({ error: 'Campos obrigatórios faltando!' });
+  }
+
+  const sql = 'UPDATE comment SET nome_musica = ?, nome_cantor = ?, comentario = ?, categoria = ?, avaliacaoId = ? WHERE id = ?';
+  db.query(sql, [nome_musica, nome_cantor, comentario, categoria, avaliacaoId, id], (err, result) => {
+    if (err) {
+      console.error(`Erro ao atualizar: ${err.message}`);
+      return res.status(500).json({ error: 'Erro ao atualizar comentário.' });
+    }
+    // Se o update não afetar nenhuma linha, pode retornar 404
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ error: 'Comentário não encontrado.' });
+    }
+    res.status(200).json({ success: true, message: 'Comentário atualizado com sucesso!', result });
+  });
+});
+
+
+
+
+
 // Inicialização do servidor
 app.listen(3000, () => console.log('Servidor rodando na porta 3000!'));
