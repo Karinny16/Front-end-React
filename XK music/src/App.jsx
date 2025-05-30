@@ -10,6 +10,7 @@ import Playlist from "./components/pages/Playlist";
 import Perfil from "./components/pages/Perfil";
 import Informacoes from "./components/pages/informacoes";
 import Update from "./components/pages/Update";
+import Delete from "./components/pages/Delete";
 
 /* IMPORTAÇÃO DO NAVBAR */
 import NavBar from "./components/layout/NavBar";
@@ -31,6 +32,8 @@ function App() {
                   element={<Informacoes />}
                 />
                 <Route path="/updateBook/:id_musica" element={<Update />} />
+                <Route path="/deleteBook/:id_musica" element={<Delete />} />
+
               </Route>
             </Routes>
             <Rodape />

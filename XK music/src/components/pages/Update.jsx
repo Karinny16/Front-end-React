@@ -7,9 +7,9 @@ import Select from "../form/Select";
 import SelectA from "../form/SelectA";
 import Button from "../form/Button";
 import Botao from "../../Botao";
+import Person from "../../assets/bichinho.png";
 
 const Update = () => {
-  // Estado dos dados do "livro"
   const [musica, setMusica] = useState({});
 
   // Recupera o id_musica da URL
@@ -115,25 +115,30 @@ const Update = () => {
 
   return (
     <section className={style.create_book_container}>
-      <h1>ALTERAÇÃO DE Avaliações</h1>
+           
+      <h1 className={style.paçoca}>EDIÇÃO DAS AVALIAÇÕES</h1>
 
       <form onSubmit={submit}>
+         <div className={style.container_img}>
+                <img className={style.img_person} src={Person} alt='Personagem' />
+            </div>
+            <div className={style.container_form}>
         <Input
-          text="Nome da Música"
+          text="Nome da Música:"
           type="text"
           name="nome_musica"
           id="txt_Musica"
-          placeholder="Digite o nome da música"
+          placeholder="Digite o nome da música:"
           handlerChange={handlerChangeMusica}
           value={musica.nome_musica || ""}
         />
 
         <Input
-          text="Nome do Cantor(a)"
+          text="Nome do Cantor(a):"
           type="text"
           name="nome_cantor"
           id="txt_Musica"
-          placeholder="Digite o nome do Cantor(a)"
+          placeholder="Digite o nome do Cantor(a):"
           handlerChange={handlerChangeMusica}
           value={musica.cantor_musica}
         />
@@ -141,28 +146,30 @@ const Update = () => {
         <SelectA
           name="avaliacao"
           id="txt_Musica"
-          text="Avaliação da Música"
+          text="Avaliação da Música:"
           handlerChange={handlerChangeAvaliacao}
           value={musica.avaliacaoId}
         />
         <Input
-          text="Comentário sobre a avaliação"
+          text="Comentário sobre a avaliação:"
           type="text"
           name="comentario"
           id="txt_Musica"
-          placeholder="Comente sua avaliação"
+          placeholder="Comente sua avaliação:"
           handlerChange={handlerChangeMusica}
           value={musica.comentario}
         />
         <Select
           name="categoria"
           id="txt_Musica"
-          text="Gênero da Música"
+          text="Gênero da Música:"
           options={categories}
           handlerChange={handlerChangeCategory}
         />
-        <Button label="Editar livro" />
+        <Button label="Editar Comentário" />
+        </div>
       </form>
+ 
     </section>
   );
 };

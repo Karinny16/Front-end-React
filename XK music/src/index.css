@@ -4,5 +4,21 @@ h1, h2, h3, h4, h5, h6, p, img{
     padding: 1px;
 }
 body{
-    background-color: #100a1c;
+    background-color:#c0b9b9;
+    height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+  
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Container para o conteúdo principal, que deve ocupar o espaço disponível */
+.content {
+  flex: 1;
 }

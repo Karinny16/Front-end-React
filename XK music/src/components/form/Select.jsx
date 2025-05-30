@@ -6,7 +6,7 @@ import style from './Select.module.css'
          <label htmlFor={name}>{text}</label>
  
          <select name= {name} id={id} onChange={handlerChange}>
-         <option value ="">Selecione um gënero</option>
+         <option value ="">Selecione um gênero:</option>
          <option value ="1">ROCK</option>
          <option value ="2"> POP</option>
          <option value ="3">JAZZ</option>

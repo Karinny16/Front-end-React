@@ -1,0 +1,17 @@
+.paçoca {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+.container_img{
+   display: flex;
+
+    align-items: center;
+    justify-content: flex-end; 
+}
+.container_form{
+      margin-top: -500px;
+    align-items:flex-start;
+    justify-content: flex-start; 
+}

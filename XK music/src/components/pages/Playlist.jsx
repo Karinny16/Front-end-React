@@ -72,50 +72,50 @@ const Playlist = () => {
             <form onSubmit={submit}>                     
                 <section className={style.create_playlist_container}>      
                     <div className={style.fundo}>
-                        <h1 className={style.subtitulo}>Crie seu comentário da sua música do momento</h1>  
+                        <h1 className={style.subtitulo}>Crie seu comentário da sua música do momento</h1>
                         <SelectA
                             name='avaliacao'   
                             id='txt_Musica'  
-                            text='Avaliação da Música'
+                            text='Avaliação da Música:'
                             handlerChange={handlerChangeAvaliacao}  
                         />
 
                         <Input         
-                            text='Nome da Música'         
+                            text='Nome da Música:'         
                             type='text'          
                             name='nome_musica'   
                             id='txt_Musica'  
-                            placeholder='Digite o nome da música' 
+                            placeholder='Digite o nome da música:' 
                             handlerChange={handlerChangeMusica}            
                         />  
 
                         <Input         
-                            text='Nome do Cantor(a)'         
+                            text='Nome do Cantor(a):'         
                             type='text'          
                             name='nome_cantor'   
                             id='txt_Musica'  
-                            placeholder='Digite o nome do Cantor(a)' 
+                            placeholder='Digite o nome do Cantor(a):' 
                             handlerChange={handlerChangeMusica}            
                         />  
 
                         <Select
                             name='categoria' 
                             id='txt_Musica' 
-                            text='Gênero da Música'
+                            text='Gênero da Música:'
                             handlerChange={handlerChangeCategory}
                         />
 
                         <Input         
-                            text='Comentário sobre a avaliação'         
+                            text='Comentário sobre a avaliação:'         
                             type='text'          
                             name='comentario'  
                             id='txt_Musica'  
-                            placeholder='Comente sua avaliação' 
+                            placeholder='Comente sua avaliação:' 
                             handlerChange={handlerChangeMusica}            
                         /> 
 
                         <Button label='POSTAR COMENTÁRIO' /> 
-                    </div>
+                    </div>  
                 </section>
             </form>
         </section>

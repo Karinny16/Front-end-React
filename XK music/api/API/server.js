@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import mysql from 'mysql';
+import mysql from 'mysql2';
 
 const app = express();
 
@@ -9,10 +9,10 @@ app.use(express.json());
 
 // Configuração do banco de dados
 const db = mysql.createConnection({
-    host: '127.0.0.1',
-    port: 3307,
+    // host: '127.0.0.1',
+    port: 3306,
     user: 'root',
-    password: 'Bakashi@16',
+    password: 'etecembu@123',
     database: 'Playlist',
 });
 
@@ -128,6 +128,29 @@ app.put('/comentarios/:id', (req, res) => {
     res.status(200).json({ success: true, message: 'Comentário atualizado com sucesso!', result });
   });
 });
+
+app.delete('/delete/:id', (req, res) => {
+  const { id } = req.params;
+
+  if (!id) {
+    return res.status(400).json({ error: 'ID inválido ou não fornecido.' });
+  }
+
+  const sql = 'DELETE FROM comment WHERE id = ?';
+  db.query(sql, [id], (err, result) => {
+    if (err) {
+      console.error(`Erro ao deletar comentário: ${err.message}`);
+      return res.status(500).json({ error: 'Erro ao deletar comentário.' });
+    }
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ error: 'Comentário não encontrado.' });
+    }
+    res.status(200).json({ success: true, message: 'Comentário deletado com sucesso!', result });
+  });
+});
+
+
+
 
 
 

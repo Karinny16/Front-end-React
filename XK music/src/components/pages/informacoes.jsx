@@ -30,7 +30,7 @@ const Informacoes = () => {
 
       <div className={style.div1}>
         <span className={style.comentario}>
-          Comentario:{musica.comentario}{" "}
+          Comentário:{musica.comentario}{" "}
         </span>
         <span className={style.avaliacaoId}>
           Avaliação:{"⭐".repeat(musica.avaliacaoId)}
@@ -38,7 +38,7 @@ const Informacoes = () => {
 
         <span className={style.musica}>Música:{musica.nome_musica}</span>
         <span className={style.cantor}>Cantor:{musica.nome_cantor}</span>
-        <span className={style.categoria}>Gënero musical:{musica.categoria}</span>
+        <span className={style.categoria}>Gênero musical:{musica.categoria}</span>
 
         <div className={style.button}>
           <Botao label="EDITAR" router="/updateBook/" index={musica.id} />

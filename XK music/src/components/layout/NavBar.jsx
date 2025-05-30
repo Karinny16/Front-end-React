@@ -14,20 +14,18 @@ const NavBar = ()=>{
                         <li className={style.item}><img className={style.logo} src={"./logoxk.PNG"} alt="Logotipo" /></li>
                     </Link>
                     
-<div className={style.con}>
                     <Link to='/'>
-                        <li className={style.item}>HOME</li>
+                        <li className={style.iten}>HOME</li>
                     </Link>
                     
                     <Link to='/playlist'>
-                        <li className={style.item}>PLAYLIST</li>
+                        <li className={style.iten}>PLAYLIST</li>
                     </Link>
                     
 
                     <Link to='/perfil'>
-                        <li className={style.item}>PERFIL</li>
+                        <li className={style.bombom}>PERFIL</li>
                     </Link>
-</div>
                 </ul>
 
             </nav>
